@@ -1,0 +1,38 @@
+//Q1) create a class with constructors and destructors.create array of instances and observe how program behaves.
+#include <iostream>
+using namespace std;
+class tushank 
+{
+private: int num;
+		
+public: tushank()
+		{
+			num=0;
+			cout<<"Inside Default Constructor"<<endl;
+		}
+		tushank(int num)
+		{
+			this->num=num;
+			cout<<"Inside Paramaterised Constructor"<<endl;
+		}
+		void getNum()
+		{
+			cout<<num<<endl;
+		}
+		~tushank()
+		{
+			cout<<"Inside Destructor"<<endl;
+		}
+		
+};
+
+int main()
+{
+	tushank o1;
+	tushank o2(10);
+	tushank m3=o1;
+	o1.getNum();
+	o2.getNum();
+	m3.getNum();
+	return 0;
+}

@@ -1,0 +1,28 @@
+/*4) create a class.
+accept from user, how many instances are required.
+Accordingly create array of instances dynamically.
+Now make sure that u call destructor for each and every instances.*/
+#include<iostream>
+using namespace std;
+class myclass
+{
+public:
+	myclass()
+	{
+	cout<<"Inside constructor"<<endl;
+	}
+	~myclass()
+	{
+	cout<<"Inside destructor"<<endl;
+	}
+};
+
+int main()
+{
+	int req;
+	cout<<"Enter the no of objects to be created"<<endl;
+	cin>>req;
+	myclass *p= new myclass [req];
+	delete []p;
+	return 0;
+}

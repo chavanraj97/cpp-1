@@ -1,0 +1,73 @@
+/*Q3)create a class "MyClass1"
+with members and member function "disp1().
+create another class "MyClass2"
+with members and member function "disp2().
+now try to invoke disp1() from disp2()
+in the main() function, create instances of both the classes and invoke their member functions.*/
+#include<iostream>
+using namespace std;
+
+class MyClass1; // forward decleration
+class MyClass2 
+{
+private: int a;
+		
+public: MyClass2()
+		{
+			a=0;
+			cout<<"Inside Default Constructor MyClass2"<<endl;
+		}
+		MyClass2(int a)
+		{
+			this->a=a;
+			cout<<"Inside Paramaterised Constructor MyClass2"<<endl;
+		}
+		void getNum()
+		{
+			cout<<a<<endl;
+		}
+		~MyClass2()
+		{
+			cout<<"Inside Destructor MyClass2"<<endl;
+		}
+		void disp (MyClass1 &);
+};
+class MyClass1 
+{
+private: int num;
+		
+public: MyClass1()
+		{
+			num=0;
+			cout<<"Inside Default Constructor MyClass1"<<endl;
+		}
+		MyClass1(int num)
+		{
+			this->num=num;
+			cout<<"Inside Paramaterised Constructor of MyClass1"<<endl;
+		}
+		void getNum()
+		{
+			cout<<num<<endl;
+		}
+		~MyClass1()
+		{
+			cout<<"Inside Destructor MyClass1"<<endl;
+		}
+		friend void MyClass2:: disp(MyClass1 &);
+};
+
+
+void MyClass2::disp(MyClass1 &ref)
+{
+	cout<<ref.num;
+}
+int main()
+{
+	MyClass1 o1;
+	MyClass2 o2(10);
+	o1.getNum();
+	o2.getNum();
+
+	return 0;
+}		

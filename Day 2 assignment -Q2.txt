@@ -1,0 +1,43 @@
+/*Q2) create a class with constructors and destructor.
+create 2 instances on stack and 1 instance on heap. 
+observe the invocation of constructors and destructors.*/
+#include <iostream>
+using namespace std;
+class tushank 
+{
+private: int num;
+		
+public: tushank()
+		{
+			num=0;
+			cout<<"Inside Default Constructor"<<endl;
+		}
+		tushank(int num)
+		{
+			this->num=num;
+			cout<<"Inside Paramaterised Constructor"<<endl;
+		}
+		void getNum()
+		{
+			cout<<num<<endl;
+		}
+		~tushank()
+		{
+			cout<<"Inside Destructor"<<endl;
+		}
+		
+};
+
+int main()
+{
+	tushank o1;
+	tushank o2(10);
+	tushank m3=o1;
+	tushank *p= new tushank(20);
+	p->getNum();
+	delete p;
+	o1.getNum();
+	o2.getNum();
+	m3.getNum();
+	return 0;
+}
